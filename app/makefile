@@ -4,3 +4,5 @@ clean:
 	gradle clean
 build:
 	gradle build
+run:
+	gradle run
