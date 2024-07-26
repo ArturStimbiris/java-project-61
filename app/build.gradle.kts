@@ -1,12 +1,17 @@
 plugins {
     id("java")
+    application
 }
 
 group = "hexlet-code"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass.set("hexlet.code.App")
 }
 
 dependencies {
@@ -16,4 +21,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "hexlet.code.App"
+    }
 }
