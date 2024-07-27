@@ -2,6 +2,7 @@ plugins {
     id("java")
     application
     kotlin("jvm")
+    checkstyle
 }
 
 group = "hexlet-code"
