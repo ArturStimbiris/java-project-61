@@ -2,24 +2,26 @@ package hexlet.code;
 import java.util.Scanner;
 import java.util.Random;
 
-class Even {
+class Engine {
     private int countOfAttempts;
     private boolean win;
     private Scanner scan;
-    Even(int countOfAttempts) {
+
+    Engine(int countOfAttempts) {
         this.countOfAttempts = countOfAttempts;
         win = true;
         scan = new Scanner(System.in);
     }
+
     public void attempt() {
         Random random = new Random();
-        var numberEven = random.nextInt(99);
-        System.out.println("Question: " + numberEven);
-        var choiceEven = scan.next();
-        switch (choiceEven) {
+        var number = random.nextInt(199);
+        System.out.println("Question: " + number);
+        var choice = scan.next();
+        switch (choice) {
             case "yes":
-                System.out.println("Your answer: " + choiceEven);
-                if (numberEven % 2 == 0) {
+                System.out.println("Your answer: " + choice);
+                if (number == 0) {
                     System.out.println("Correct!");
                     break;
                 } else {
@@ -28,8 +30,8 @@ class Even {
                     break;
                 }
             case "no":
-                System.out.println("Your answer: " + choiceEven);
-                if (numberEven % 2 > 0) {
+                System.out.println("Your answer: " + choice);
+                if (number > 0) {
                     System.out.println("Correct!");
                     break;
                 } else {
@@ -38,11 +40,12 @@ class Even {
                     break;
                 }
             default:
-                System.out.println("Not allowed choice - " + choiceEven + ". Bue!");
+                System.out.println("Not allowed choice - " + choice + ". Bue!");
                 win = false;
         }
     }
-    public void game() {
+
+    public void gameEngine() {
         Greeting greeting = new Greeting();
         greeting.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");

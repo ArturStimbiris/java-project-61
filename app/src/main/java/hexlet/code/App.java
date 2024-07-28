@@ -6,6 +6,7 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
+        System.out.println("3 - Calc");
         System.out.println("0 - Exit");
         Scanner scannerM = new Scanner(System.in);
         var greeting = new Greeting();
@@ -19,7 +20,12 @@ public class App {
             case "2":
                 System.out.println("Your choice - " + choice);
                 Even even = new Even(3);
-                even.gameEven();
+                even.game();
+                break;
+            case "3":
+                System.out.println("Your choice - " + choice);
+                Calc calc = new Calc(3);
+                calc.game();
                 break;
             case "0":
                 System.out.println("Your choice - " + choice);
