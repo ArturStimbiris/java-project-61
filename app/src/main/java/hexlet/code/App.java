@@ -7,10 +7,16 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         Scanner scannerM = new Scanner(System.in);
         var greeting = new Greeting();
-        var choice = scannerM.next();
+        var choice = "";
+        try {
+            choice = scannerM.next();
+        } catch (Exception e) {
+            System.out.println("Ошибка: Пожалуйста, введите корректные данные.");
+        }
         System.out.println();
         switch (choice) {
             case "1":
@@ -26,6 +32,11 @@ public class App {
                 System.out.println("Your choice - " + choice);
                 Calc calc = new Calc(3);
                 calc.game();
+                break;
+            case "4":
+                System.out.println("Your choice - " + choice);
+                GCD gcd = new GCD(3);
+                gcd.game();
                 break;
             case "0":
                 System.out.println("Your choice - " + choice);

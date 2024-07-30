@@ -45,10 +45,10 @@ class Engine {
         }
     }
 
-    public void gameEngine() {
+    public void game() {
         Greeting greeting = new Greeting();
         greeting.greeting();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println("    TEXT   ");
         for (int i = 0; i < countOfAttempts; i++) {
             this.attempt();
             if (!win) {

@@ -14,8 +14,14 @@ class Even {
     public void attempt() {
         Random random = new Random();
         var numberEven = random.nextInt(99);
+        var choiceEven = "";
         System.out.println("Question: " + numberEven);
-        var choiceEven = scan.next();
+        try {
+            choiceEven = scan.next();
+        }
+        catch(Exception e) {
+            System.out.println("Illegal input");
+        }
         switch (choiceEven) {
             case "yes":
                 System.out.println("Your answer: " + choiceEven);

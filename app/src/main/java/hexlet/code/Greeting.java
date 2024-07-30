@@ -13,7 +13,12 @@ class Greeting {
     }
     public void setUserName() {
         System.out.print("May I have your name? ");
-        this.userName = scanner.next();
+        try {
+            this.userName = scanner.next();
+        }
+        catch (Exception e) {
+            this.userName = "unknown";
+        }
     }
     public void greet() {
         System.out.println("Hello, " + userName + "!");

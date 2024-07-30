@@ -2,12 +2,12 @@ package hexlet.code;
 import java.util.Scanner;
 import java.util.Random;
 
-class Calc {
+class GCD {
     private int countOfAttempts;
     private boolean win;
     private Scanner scan;
 
-    Calc(int countOfAttempts) {
+    GCD(int countOfAttempts) {
         this.countOfAttempts = countOfAttempts;
         win = true;
         scan = new Scanner(System.in);
@@ -15,31 +15,29 @@ class Calc {
 
     public void attempt() {
         Random random = new Random();
-        var numberOne = random.nextInt(20);
-        var numberTwo = random.nextInt(20);
-        int result = 0;
-        var symbol = "";
-        var matchVariant = random.nextInt(1, 4);
-        switch (matchVariant) {
-            case 1:
-                result = numberOne + numberTwo;
-                symbol = "+";
-                break;
-            case 2:
-                result = numberOne - numberTwo;
-                symbol = "-";
-                break;
-            case 3:
-                result = numberOne * numberTwo;
-                symbol = "*";
-                break;
+        var numberOne = random.nextInt(1,101);
+        var numberTwo = random.nextInt(1,101);
+        var x = 0;
+        var y = 0;
+        if (numberOne >= numberTwo) {
+            x = numberOne;
+            y = numberTwo;
+        } else if (numberOne < numberTwo) {
+            x = numberTwo;
+            y = numberOne;
         }
-        System.out.println("Question: " + numberOne + " " + symbol + " " + numberTwo);
-        int choice = 0;
+        while (y != 0) {
+            int tmp = y;
+            y = x % y;
+            x = tmp;
+        }
+        var result = x;
+        System.out.println("Question: " + numberOne + " " + numberTwo);
+        var choice = 0;
         try {
             choice = scan.nextInt();
         }
-        catch(Exception e) {
+        catch (Exception e) {
             System.out.println("Illegal input");
         }
         if (result == choice) {
@@ -55,7 +53,7 @@ class Calc {
     public void game() {
         Greeting greeting = new Greeting();
         greeting.greeting();
-        System.out.println("What is the result of the expression?");
+        System.out.println("Find the greatest common divisor of given numbers.");
         for (int i = 0; i < countOfAttempts; i++) {
             this.attempt();
             if (!win) {
@@ -68,3 +66,4 @@ class Calc {
         }
     }
 }
+
