@@ -9,6 +9,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         Scanner scannerM = new Scanner(System.in);
         var greeting = new Greeting();
@@ -43,6 +44,11 @@ public class App {
                 System.out.println("Your choice - " + choice);
                 Progression progression = new Progression(3);
                 progression.game();
+                break;
+            case "6":
+                System.out.println("Your choice - " + choice);
+                Prime prime = new Prime(3);
+                prime.game();
                 break;
             case "0":
                 System.out.println("Your choice - " + choice);
