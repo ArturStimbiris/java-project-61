@@ -8,6 +8,7 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
         System.out.println("0 - Exit");
         Scanner scannerM = new Scanner(System.in);
         var greeting = new Greeting();
@@ -37,6 +38,11 @@ public class App {
                 System.out.println("Your choice - " + choice);
                 GCD gcd = new GCD(3);
                 gcd.game();
+                break;
+            case "5":
+                System.out.println("Your choice - " + choice);
+                Progression progression = new Progression(3);
+                progression.game();
                 break;
             case "0":
                 System.out.println("Your choice - " + choice);

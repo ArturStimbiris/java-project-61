@@ -2,12 +2,12 @@ package hexlet.code;
 import java.util.Scanner;
 import java.util.Random;
 
-class GCD {
+class Progression {
     private int countOfAttempts;
     private boolean win;
     private Scanner scan;
 
-    GCD(int countOfAttempts) {
+    Progression(int countOfAttempts) {
         this.countOfAttempts = countOfAttempts;
         win = true;
         scan = new Scanner(System.in);
@@ -15,24 +15,33 @@ class GCD {
 
     public void attempt() {
         Random random = new Random();
-        var numberOne = random.nextInt(1,101);
-        var numberTwo = random.nextInt(1,101);
-        var x = 0;
-        var y = 0;
-        if (numberOne >= numberTwo) {
-            x = numberOne;
-            y = numberTwo;
-        } else if (numberOne < numberTwo) {
-            x = numberTwo;
-            y = numberOne;
+        var arrLength = random.nextInt(7,11);
+        int[] numbers = new int[arrLength];
+        String[] row = new String[arrLength];
+        var arrayStart = random.nextInt(2,25);
+        var arrayProgression = random.nextInt(1,7);
+        var hiderPosition = random.nextInt(0,arrLength - 1);
+        var text = "";
+        var result = 0;
+        for (int i = 0; i < arrLength; i++) {
+            if (i == 0) {
+                numbers[i] = arrayStart;
+            } else {
+                numbers[i] = numbers[i - 1] + arrayProgression;
+            }
+            if (i == hiderPosition) {
+                row[i] = "..";
+                result = numbers[i];
+            } else {
+                row[i] = String.valueOf(numbers[i]);
+            }
+            if (i == 0) {
+                text = row[i];
+            } else {
+                text = text + " " + row[i];
+            }
         }
-        while (y != 0) {
-            int tmp = y;
-            y = x % y;
-            x = tmp;
-        }
-        var result = x;
-        System.out.println("Question: " + numberOne + " " + numberTwo);
+        System.out.println("Question: " + text);
         var choice = 0;
         try {
             choice = scan.nextInt();
@@ -53,7 +62,7 @@ class GCD {
     public void game() {
         Greeting greeting = new Greeting();
         greeting.greeting();
-        System.out.println("Find the greatest common divisor of given numbers.");
+        System.out.println("What number is missing in the progression?");
         for (int i = 0; i < countOfAttempts; i++) {
             this.attempt();
             if (!win) {

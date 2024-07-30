@@ -43,10 +43,10 @@ class Calc {
             System.out.println("Illegal input");
         }
         if (result == choice) {
-            System.out.println("Your answer: " + result);
+            System.out.println("Your answer: " + choice);
             System.out.println("Correct!");
         } else {
-            System.out.println("Your answer: " + result);
+            System.out.println("Your answer: " + choice);
             System.out.println("'" + choice + "' is wrong answer ;(. Correct answer was '" + result + "'.");
             win = false;
         }
