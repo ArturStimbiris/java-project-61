@@ -17,8 +17,8 @@ class Prime {
         if (n < 2) {
             return false;
         }
-        for(int i = 2; i < n / 2; i++) {
-            if(n % i == 0) {
+        for (int i = 2; i < n / 2; i++) {
+            if (n % i == 0) {
                 return false;
             }
         }
@@ -33,8 +33,7 @@ class Prime {
         var choice = "";
         try {
             choice = scan.next();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Illegal input");
         }
         switch (choice) {

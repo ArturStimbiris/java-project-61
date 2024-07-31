@@ -15,8 +15,7 @@ class Greeting {
         System.out.print("May I have your name? ");
         try {
             this.userName = scanner.next();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             this.userName = "unknown";
         }
     }

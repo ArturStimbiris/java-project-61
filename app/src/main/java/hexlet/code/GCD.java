@@ -15,8 +15,8 @@ class GCD {
 
     public void attempt() {
         Random random = new Random();
-        var numberOne = random.nextInt(1,101);
-        var numberTwo = random.nextInt(1,101);
+        var numberOne = random.nextInt(1, 101);
+        var numberTwo = random.nextInt(1, 101);
         var x = 0;
         var y = 0;
         if (numberOne >= numberTwo) {
@@ -36,8 +36,7 @@ class GCD {
         var choice = 0;
         try {
             choice = scan.nextInt();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Illegal input");
         }
         if (result == choice) {

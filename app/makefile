@@ -1,8 +1,8 @@
 run-dist:
 	java -jar ./build/libs/app-1.0.jar
 clean:
-	gradle clean
+	./gradlew clean
 build:
-	gradle build
+	./gradlew build
 run:
-	gradle run
+	./gradlew run

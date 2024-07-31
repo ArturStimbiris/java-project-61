@@ -15,12 +15,12 @@ class Progression {
 
     public void attempt() {
         Random random = new Random();
-        var arrLength = random.nextInt(7,11);
+        var arrLength = random.nextInt(7, 11);
         int[] numbers = new int[arrLength];
         String[] row = new String[arrLength];
-        var arrayStart = random.nextInt(2,25);
-        var arrayProgression = random.nextInt(1,7);
-        var hiderPosition = random.nextInt(0,arrLength - 1);
+        var arrayStart = random.nextInt(2, 25);
+        var arrayProgression = random.nextInt(1, 7);
+        var hiderPosition = random.nextInt(0, arrLength - 1);
         var text = "";
         var result = 0;
         for (int i = 0; i < arrLength; i++) {
@@ -45,8 +45,7 @@ class Progression {
         var choice = 0;
         try {
             choice = scan.nextInt();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Illegal input");
         }
         if (result == choice) {

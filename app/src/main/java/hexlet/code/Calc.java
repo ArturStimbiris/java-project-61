@@ -33,13 +33,14 @@ class Calc {
                 result = numberOne * numberTwo;
                 symbol = "*";
                 break;
+            default:
+                result = 0;
         }
         System.out.println("Question: " + numberOne + " " + symbol + " " + numberTwo);
         int choice = 0;
         try {
             choice = scan.nextInt();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Illegal input");
         }
         if (result == choice) {

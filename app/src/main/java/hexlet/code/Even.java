@@ -18,8 +18,7 @@ class Even {
         System.out.println("Question: " + numberEven);
         try {
             choiceEven = scan.next();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Illegal input");
         }
         switch (choiceEven) {
