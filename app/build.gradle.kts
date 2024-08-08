@@ -1,7 +1,5 @@
 plugins {
-    id("java")
     application
-    kotlin("jvm")
     checkstyle
 }
 
@@ -19,7 +17,6 @@ application {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.test {
@@ -30,9 +27,6 @@ tasks.jar {
     manifest {
         attributes["Main-Class"] = "hexlet.code.App"
     }
-}
-kotlin {
-    jvmToolchain(21)
 }
 
 tasks.getByName("run", JavaExec::class) {
