@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Progression {
     public static String answerBranch() {
-        return "What is the result of the expression?";
+        return "What number is missing in the progression?";
     }
     public static int[] makeProgression(int progressionStartNumber, int progressionDependency, int progressionLength) {
         int[] numbers = new int[progressionLength];
