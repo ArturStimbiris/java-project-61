@@ -1,9 +1,7 @@
 package hexlet.code;
-import hexlet.code.*;
 import java.util.Scanner;
-import java.util.Random;
 
-public class Engine {    
+public class Engine {
     public static int mainMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -46,7 +44,7 @@ public class Engine {
         }
         System.out.println("Your answer: " + attemptChoice);
         switch (attemptChoice) {
-            case "yes":                
+            case "yes":
                 if (gameAnswer.equals("yes")) {
                     System.out.println("Correct!");
                     return true;
@@ -65,26 +63,56 @@ public class Engine {
             default:
                 System.out.println("Not allowed choice - " + attemptChoice + ". Bue!");
                 return false;
-        }            
+        }
     }
-    public static void playGame(int countOfAttempts, String[] gameQuestions, String[] gameAnswers, String firstText, boolean isYesNoGame) {
+    public static boolean attemptForNumber(int gameAnswer) {
+        int choice = 0;
+        var scannerAttempChoice = new Scanner(System.in);
+        try {
+            choice = scannerAttempChoice.nextInt();
+        } catch (Exception e) {
+            System.out.println("Illegal input");
+        }
+        if (gameAnswer == choice) {
+            System.out.println("Your answer: " + choice);
+            System.out.println("Correct!");
+            return true;
+        } else {
+            System.out.println("Your answer: " + choice);
+            System.out.println("'" + choice + "' is wrong answer ;(. Correct answer was '" + gameAnswer + "'.");
+            return false;
+        }
+    }
+    public static void playGame(int countOfAttempts, String[] gameQuestions, String[] gameAnswers, String firstText) {
         var userName = greeting();
         System.out.println(firstText);
         var win = false;
-        if (isYesNoGame) {
-            for (int i = 0; i < countOfAttempts; i++) {
-                System.out.println(gameQuestions[i]);
-                win = attemptForYesNo(gameAnswers[i]);
-                if (!win) {
-                    System.out.println("Let's try again, " + userName + "!");
-                    break;
-                }
+        for (int i = 0; i < countOfAttempts; i++) {
+            System.out.println(gameQuestions[i]);
+            win = attemptForYesNo(gameAnswers[i]);
+            if (!win) {
+                System.out.println("Let's try again, " + userName + "!");
+                break;
             }
-            if (win) {
-                System.out.println("Congratulations, " + userName + "!");
+        }
+        if (win) {
+            System.out.println("Congratulations, " + userName + "!");
+        }
+    }
+    public static void playGame(int countOfAttempts, String[] gameQuestions, int[] gameAnswers, String firstText) {
+        var userName = greeting();
+        System.out.println(firstText);
+        var win = false;
+        for (int i = 0; i < countOfAttempts; i++) {
+            System.out.println(gameQuestions[i]);
+            win = attemptForNumber(gameAnswers[i]);
+            if (!win) {
+                System.out.println("Let's try again, " + userName + "!");
+                break;
             }
-        } else {
-            //
+        }
+        if (win) {
+            System.out.println("Congratulations, " + userName + "!");
         }
     }
 }

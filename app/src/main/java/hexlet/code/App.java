@@ -1,56 +1,40 @@
 package hexlet.code;
-import java.util.Scanner;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
-        Scanner scannerM = new Scanner(System.in);
-        var greeting = new Greeting();
-        var choice = "";
-        try {
-            choice = scannerM.next();
-        } catch (Exception e) {
-            System.out.println("Ошибка: Пожалуйста, введите корректные данные.");
-        }
-        System.out.println();
+        var choice = Engine.mainMenu();
+        var countOfAttempts = 3;
         switch (choice) {
-            case "1":
+            case 1:
                 System.out.println("Your choice - " + choice);
-                greeting.greeting();
+                Engine.greeting();
                 break;
-            case "2":
+            case 2:
                 System.out.println("Your choice - " + choice);
-                Even even = new Even(3);
-                even.game();
+                Even.game(countOfAttempts);
                 break;
-            case "3":
+            case 3:
                 System.out.println("Your choice - " + choice);
-                Calc calc = new Calc(3);
-                calc.game();
+                Calc.game(countOfAttempts);
                 break;
-            case "4":
+            case 4:
                 System.out.println("Your choice - " + choice);
-                GCD gcd = new GCD(3);
-                gcd.game();
+                GCD.game(countOfAttempts);
                 break;
-            case "5":
+            case 5:
                 System.out.println("Your choice - " + choice);
-                Progression progression = new Progression(3);
-                progression.game();
+                Progression.game(countOfAttempts);
                 break;
-            case "6":
+            case 6:
                 System.out.println("Your choice - " + choice);
-                Prime prime = new Prime(3);
-                prime.game();
+                Prime.game(countOfAttempts);
                 break;
-            case "0":
+            case 0:
                 System.out.println("Your choice - " + choice);
                 break;
             default:
