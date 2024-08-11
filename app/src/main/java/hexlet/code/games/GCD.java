@@ -24,7 +24,7 @@ public class GCD {
         return x;
     }
     public static int makeAnyQuestionNumber() {
-        var maxValueOfRandom = 100;
+        var maxValueOfRandom = 100; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(maxValueOfRandom);
     }

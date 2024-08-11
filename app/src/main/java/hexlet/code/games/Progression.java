@@ -36,18 +36,18 @@ public class Progression {
     }
     public static int makeProgressionDependency() {
         var minValueOfRandom = 1;
-        var maxValueOfRandom = 7;
+        var maxValueOfRandom = 7; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(minValueOfRandom, maxValueOfRandom);
     }
     public static int makeProgressionStartNumber() {
-        var maxValueOfRandom = 25;
+        var maxValueOfRandom = 25; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(maxValueOfRandom);
     }
     public static int makeProgressionLenght() {
-        var minValueOfRandom = 7;
-        var maxValueOfRandom = 11;
+        var minValueOfRandom = 7; //Make min value of random number for this game
+        var maxValueOfRandom = 11; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(minValueOfRandom, maxValueOfRandom);
     }

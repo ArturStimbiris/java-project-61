@@ -8,11 +8,11 @@ public class Calc {
     }
     public static int resultForOperation(int numberOne, int numberTwo, int machVariant) {
         switch (machVariant) {
-            case 1:
+            case 1: //Have jut 3 variants for math operations
                 return numberOne + numberTwo;
-            case 2:
+            case 2: //Have jut 3 variants for math operations
                 return numberOne - numberTwo;
-            case 3:
+            case 3: //Have jut 3 variants for math operations
                 return numberOne * numberTwo;
             default:
                 return 0;
@@ -20,11 +20,11 @@ public class Calc {
     }
     public static Character makeCharacterForThisMathOperation(int machVariant) {
         switch (machVariant) {
-            case 1:
+            case 1: //Have jut 3 variants for math operations
                 return '+';
-            case 2:
+            case 2: //Have jut 3 variants for math operations
                 return '-';
-            case 3:
+            case 3: //Have jut 3 variants for math operations
                 return '*';
             default:
                 return null;
@@ -37,7 +37,7 @@ public class Calc {
         return random.nextInt(minValueOfRandom, maxValueOfRandom);
     }
     public static int makeAnyQuestionNumber() {
-        var maxValueOfRandom = 100;
+        var maxValueOfRandom = 100; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(maxValueOfRandom);
     }
