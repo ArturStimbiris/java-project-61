@@ -3,6 +3,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
+    public static final int maxValueOfRandom = 100; //Make max value of random number for this game
     public static String answerBranch() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
@@ -13,7 +14,6 @@ public class Even {
         return true;
     }
     public static int makeAnyQuestionNumber() {
-        var maxValueOfRandom = 100; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(maxValueOfRandom);
     }

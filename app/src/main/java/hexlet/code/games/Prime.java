@@ -3,6 +3,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
+    public static final int maxValueOfRandom = 100; //Make max value of random number for this game
     public static String answerBranch() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
@@ -18,7 +19,6 @@ public class Prime {
         return true;
     }
     public static int makeAnyQuestionNumber() {
-        var maxValueOfRandom = 100; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(maxValueOfRandom);
     }

@@ -3,6 +3,11 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
+    public static final int minValueOfRandomForDependency = 1; //Make min value of random number for progression dependency
+    public static final int maxValueOfRandomForDependency = 7; //Make max value of random number for progression dependency
+    public static final int maxValueOfRandomForStartNumber = 25; //Make max value of random number for progression start number
+    public static final int minValueOfRandomForProgressionLength = 7; //Make min value of random number for progression length
+    public static final int maxValueOfRandomForProgressionLength = 11; //Make max value of random number for progression length
     public static String answerBranch() {
         return "What number is missing in the progression?";
     }
@@ -35,21 +40,16 @@ public class Progression {
         return progressionInText;
     }
     public static int makeProgressionDependency() {
-        var minValueOfRandom = 1;
-        var maxValueOfRandom = 7; //Make max value of random number for this game
         Random random = new Random();
-        return random.nextInt(minValueOfRandom, maxValueOfRandom);
+        return random.nextInt(minValueOfRandomForDependency, maxValueOfRandomForDependency);
     }
     public static int makeProgressionStartNumber() {
-        var maxValueOfRandom = 25; //Make max value of random number for this game
         Random random = new Random();
-        return random.nextInt(maxValueOfRandom);
+        return random.nextInt(maxValueOfRandomForStartNumber);
     }
     public static int makeProgressionLenght() {
-        var minValueOfRandom = 7; //Make min value of random number for this game
-        var maxValueOfRandom = 11; //Make max value of random number for this game
         Random random = new Random();
-        return random.nextInt(minValueOfRandom, maxValueOfRandom);
+        return random.nextInt(minValueOfRandomForProgressionLength, maxValueOfRandomForProgressionLength);
     }
     public static int makeProgressionHiddenElementPosition(int progressionLength) {
         var minValueOfRandom = 0;

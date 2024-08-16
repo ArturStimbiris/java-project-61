@@ -2,25 +2,6 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static int mainMenu() {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
-        Scanner scannerM = new Scanner(System.in);
-        var choiceInMainMenu = 0;
-        try {
-            choiceInMainMenu = scannerM.nextInt();
-        } catch (Exception e) {
-            System.out.println("Error. Incorrect input.");
-        }
-        System.out.println();
-        return choiceInMainMenu;
-    }
     public static String greeting() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");

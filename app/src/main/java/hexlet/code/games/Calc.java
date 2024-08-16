@@ -3,41 +3,45 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
+    //Set choice options
+    public static final int choiceOne = 1;
+    public static final int choiceTwo = 2;
+    public static final int choiceThree = 3;
+    public static final int maxValueOfRandom = 100; //Make max value of random number for this game
+    public static final int minValueOfRandomForOperator = 1; //Make min value of random number for generate math operator
+    public static final int maxValueOfRandomForOperator = 4; //Make max value of random number for generate math operator
     public static String answerBranch() {
         return "What is the result of the expression?";
     }
-    public static int resultForOperation(int numberOne, int numberTwo, int machVariant) {
-        switch (machVariant) {
-            case 1: //Have jut 3 variants for math operations
+    public static int resultForOperation(int numberOne, int numberTwo, int mathVariant) {
+        switch (mathVariant) {
+            case choiceOne:
                 return numberOne + numberTwo;
-            case 2: //Have jut 3 variants for math operations
+            case choiceTwo:
                 return numberOne - numberTwo;
-            case 3: //Have jut 3 variants for math operations
+            case choiceThree:
                 return numberOne * numberTwo;
             default:
                 return 0;
         }
     }
-    public static Character makeCharacterForThisMathOperation(int machVariant) {
-        switch (machVariant) {
-            case 1: //Have jut 3 variants for math operations
+    public static Character makeCharacterForThisMathOperation(int mathVariant) {
+        switch (mathVariant) {
+            case choiceOne:
                 return '+';
-            case 2: //Have jut 3 variants for math operations
+            case choiceTwo:
                 return '-';
-            case 3: //Have jut 3 variants for math operations
+            case choiceThree:
                 return '*';
             default:
                 return null;
         }
     }
     public static int makeMathVariant() {
-        var minValueOfRandom = 1;
-        var maxValueOfRandom = 4;
         Random random = new Random();
-        return random.nextInt(minValueOfRandom, maxValueOfRandom);
+        return random.nextInt(minValueOfRandomForOperator, maxValueOfRandomForOperator);
     }
     public static int makeAnyQuestionNumber() {
-        var maxValueOfRandom = 100; //Make max value of random number for this game
         Random random = new Random();
         return random.nextInt(maxValueOfRandom);
     }
