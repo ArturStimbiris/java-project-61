@@ -15,21 +15,21 @@ public class Even {
         Random random = new Random();
         return random.nextInt(MAX_VALUE_OF_RANDOM);
     }
-    public static String makeGameQuestion(int questionNumber) {
+    public static String makeQuestion(int questionNumber) {
         return "Question: " + questionNumber;
     }
     public static void game() {
-        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var questionNumber = makeAnyQuestionNumber();
-            questionsAndAnswers[i] = makeGameQuestion(questionNumber);
+            qa[i] = makeQuestion(questionNumber);
             var isEvenNumber = isEven(questionNumber);
             if (isEvenNumber) {
-                questionsAndAnswers[i] = questionsAndAnswers[i] + ", " + "yes";
+                qa[i] = qa[i] + ", " + "yes";
             } else {
-                questionsAndAnswers[i] = questionsAndAnswers[i] + ", " + "no";
+                qa[i] = qa[i] + ", " + "no";
             }
         }
-        Engine.playGame(questionsAndAnswers, RULES);
+        Engine.playGame(qa, RULES);
     }
 }

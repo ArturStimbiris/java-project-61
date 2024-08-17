@@ -9,22 +9,22 @@ public class Progression {
     public static final int MIN_VAL_PROGR_LENGTH = 7;
     public static final int MAX_VAL_PROGR_LENGTH = 11;
     public static final String RULES = "What number is missing in the progression?";
-    public static int[] makeProgression(int progressionStartNumber, int progressionDependency, int progressionLength) {
-        int[] numbers = new int[progressionLength];
-        for (int i = 0; i < progressionLength; i++) {
+    public static int[] makeProgression(int startNumber, int dependency, int length) {
+        int[] numbers = new int[length];
+        for (int i = 0; i < length; i++) {
             if (i == 0) {
-                numbers[i] = progressionStartNumber;
+                numbers[i] = startNumber;
             } else {
-                numbers[i] = numbers[i - 1] + progressionDependency;
+                numbers[i] = numbers[i - 1] + dependency;
             }
         }
         return numbers;
     }
-    public static String makeProgressionInText(int[] numbers, int progressionHiddenElementPosition) {
+    public static String makeProgressionInText(int[] numbers, int hiddenElementPosition) {
         var progressionInText = "";
         String[] row = new String[numbers.length];
         for (int i = 0; i < numbers.length; i++) {
-            if (i == progressionHiddenElementPosition) {
+            if (i == hiddenElementPosition) {
                 row[i] = "..";
             } else {
                 row[i] = String.valueOf(numbers[i]);
@@ -37,39 +37,39 @@ public class Progression {
         }
         return progressionInText;
     }
-    public static int makeProgressionDependency() {
+    public static int makeDependency() {
         Random random = new Random();
         return random.nextInt(MIN_VAL_FOR_DEPENDENCY, MAX_VAL_FOR_DEPENDENCY);
     }
-    public static int makeProgressionStartNumber() {
+    public static int makeStartNumber() {
         Random random = new Random();
         return random.nextInt(MAX_VAL_FOR_START_NUMBER);
     }
-    public static int makeProgressionLenght() {
+    public static int makeLenght() {
         Random random = new Random();
         return random.nextInt(MIN_VAL_PROGR_LENGTH, MAX_VAL_PROGR_LENGTH);
     }
-    public static int makeProgressionHiddenElementPosition(int progressionLength) {
+    public static int makeHiddenElement(int progressionLength) {
         var minValueOfRandom = 0;
         var maxValueOfRandom = progressionLength - 1;
         Random random = new Random();
         return random.nextInt(minValueOfRandom, maxValueOfRandom);
     }
-    public static String makeGameQuestion(String progressionInText) {
+    public static String makeQuestion(String progressionInText) {
         return "Question: " + progressionInText;
     }
     public static void game() {
-        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
-            var progressionLength = makeProgressionLenght();
-            var progressionDependency = makeProgressionDependency();
-            var progressionStartNumber = makeProgressionStartNumber();
-            var progressionHiddenElementPosition = makeProgressionHiddenElementPosition(progressionLength);
-            int[] progression = makeProgression(progressionStartNumber, progressionDependency, progressionLength);
-            var progressionInText = makeProgressionInText(progression, progressionHiddenElementPosition);
-            questionsAndAnswers[i] = makeGameQuestion(progressionInText) + ", " + progression[progressionHiddenElementPosition];
+            var length = makeLenght();
+            var dependency = makeDependency();
+            var startNumber = makeStartNumber();
+            var hiddenElemint = makeHiddenElement(length);
+            int[] progression = makeProgression(startNumber, dependency, length);
+            var progressionInText = makeProgressionInText(progression, hiddenElemint);
+            qa[i] = makeQuestion(progressionInText) + ", " + progression[hiddenElemint];
         }
-        Engine.playGame(questionsAndAnswers, RULES);
+        Engine.playGame(qa, RULES);
     }
 }
 

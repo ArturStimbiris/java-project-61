@@ -5,7 +5,7 @@ import java.util.Random;
 public class GCD {
     public static final int MAX_VALUE_OF_RANDOM = 100;
     public static final String RULES = "Find the greatest common divisor of given numbers.";
-    public static int gcdForTwoNumbers(int numberOne, int numberTwo) {
+    public static int gcd(int numberOne, int numberTwo) {
         var x = 0;
         var y = 0;
         if (numberOne >= numberTwo) {
@@ -26,17 +26,17 @@ public class GCD {
         Random random = new Random();
         return random.nextInt(MAX_VALUE_OF_RANDOM);
     }
-    public static String makeGameQuestion(int firstQuestionNumber, int secondQuestionNumber) {
+    public static String makeQuestion(int firstQuestionNumber, int secondQuestionNumber) {
         return "Question: " + firstQuestionNumber + " " + secondQuestionNumber;
     }
     public static void game() {
-        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
-            var firstGameNumber = makeAnyQuestionNumber();
-            var secondGameNumber = makeAnyQuestionNumber();
-            questionsAndAnswers[i] = makeGameQuestion(firstGameNumber, secondGameNumber) + ", " + gcdForTwoNumbers(firstGameNumber, secondGameNumber);
+            var firstNumber = makeAnyQuestionNumber();
+            var secondNumber = makeAnyQuestionNumber();
+            qa[i] = makeQuestion(firstNumber, secondNumber) + ", " + gcd(firstNumber, secondNumber);
         }
-        Engine.playGame(questionsAndAnswers, RULES);
+        Engine.playGame(qa, RULES);
     }
 }
 

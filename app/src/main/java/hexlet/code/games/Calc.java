@@ -10,7 +10,7 @@ public class Calc {
     public static final int MIN_VAL_OPERATOR = 1;
     public static final int MAX_VAL_OPERATOR = 4;
     public static final String RULES = "What is the result of the expression?";
-    public static int resultForOperation(int numberOne, int numberTwo, int mathVariant) {
+    public static int result(int numberOne, int numberTwo, int mathVariant) {
         switch (mathVariant) {
             case CHOICE_ONE:
                 return numberOne + numberTwo;
@@ -22,7 +22,7 @@ public class Calc {
                 return 0;
         }
     }
-    public static Character makeCharacterForThisMathOperation(int mathVariant) {
+    public static Character makeChar(int mathVariant) {
         switch (mathVariant) {
             case CHOICE_ONE:
                 return '+';
@@ -42,18 +42,18 @@ public class Calc {
         Random random = new Random();
         return random.nextInt(MAX_VALUE_OF_RANDOM);
     }
-    public static String makeGameQuestion(int firstQuestionNumber, int secondQuestionNumber, Character mathCharacter) {
-        return "Question: " + firstQuestionNumber + " " + mathCharacter + " " + secondQuestionNumber;
+    public static String makeQuestion(int firstNumber, int secondNumber, Character mathCharacter) {
+        return "Question: " + firstNumber + " " + mathCharacter + " " + secondNumber;
     }
     public static void game() {
-        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
-            var firstGameNumber = makeAnyQuestionNumber();
-            var secondGameNumber = makeAnyQuestionNumber();
+            var numOne = makeAnyQuestionNumber();
+            var numTwo = makeAnyQuestionNumber();
             var mathVariant = makeMathVariant();
-            var mathChar = makeCharacterForThisMathOperation(mathVariant);
-            questionsAndAnswers[i] = makeGameQuestion(firstGameNumber, secondGameNumber, mathChar) + ", " + resultForOperation(firstGameNumber, secondGameNumber, mathVariant);
+            var mathChar = makeChar(mathVariant);
+            qa[i] = makeQuestion(numOne, numTwo, mathChar) + ", " + result(numOne, numTwo, mathVariant);
         }
-        Engine.playGame(questionsAndAnswers, RULES);
+        Engine.playGame(qa, RULES);
     }
 }
