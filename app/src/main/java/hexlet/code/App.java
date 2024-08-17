@@ -14,7 +14,6 @@ public class App {
     public static final int CHOICE_FIVE = 5;
     public static final int CHOICE_SIX = 6;
     public static final int CHOICE_ZERO = 0;
-    public static final int COUNT_OF_ATTEMPT = 3;
     public static void main(String[] args) {
         var choice = mainMenu();
         switch (choice) {
@@ -24,23 +23,23 @@ public class App {
                 break;
             case CHOICE_TWO: //Select menu number "2"
                 System.out.println("Your choice - " + choice);
-                Even.game(COUNT_OF_ATTEMPT);
+                Even.game();
                 break;
             case CHOICE_THREE: //Select menu number "3"
                 System.out.println("Your choice - " + choice);
-                Calc.game(COUNT_OF_ATTEMPT);
+                Calc.game();
                 break;
             case CHOICE_FOUR: //Select menu number "4"
                 System.out.println("Your choice - " + choice);
-                GCD.game(COUNT_OF_ATTEMPT);
+                GCD.game();
                 break;
             case CHOICE_FIVE: //Select menu number "5"
                 System.out.println("Your choice - " + choice);
-                Progression.game(COUNT_OF_ATTEMPT);
+                Progression.game();
                 break;
             case CHOICE_SIX: //Select menu number "6"
                 System.out.println("Your choice - " + choice);
-                Prime.game(COUNT_OF_ATTEMPT);
+                Prime.game();
                 break;
             case CHOICE_ZERO: //Select menu number "0"
                 System.out.println("Your choice - " + choice);

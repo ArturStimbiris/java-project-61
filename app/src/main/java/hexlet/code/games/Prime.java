@@ -4,9 +4,7 @@ import java.util.Random;
 
 public class Prime {
     public static final int MAX_VALUE_OF_RANDOM = 100;
-    public static String answerBranch() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
+    public static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static boolean isPrime(int n) {
         if (n < 2) {
             return false;
@@ -25,11 +23,10 @@ public class Prime {
     public static String makeGameQuestion(int firstQuestionNumber) {
         return "Question: " + firstQuestionNumber;
     }
-    public static void game(int countOfAttempts) {
-        String[] questions = new String[countOfAttempts];
-        String[] correctAnswers = new String[countOfAttempts];
-        var firstQuestion = answerBranch();
-        for (var i = 0; i < countOfAttempts; i++) {
+    public static void game() {
+        String[] questions = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[] correctAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
+        for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var firstGameNumber = makeAnyQuestionNumber();
             questions[i] = makeGameQuestion(firstGameNumber);
             var isPrimeNumber = isPrime(firstGameNumber);
@@ -39,6 +36,6 @@ public class Prime {
                 correctAnswers[i] = "no";
             }
         }
-        Engine.playGame(countOfAttempts, questions, correctAnswers, firstQuestion);
+        Engine.playGame(questions, correctAnswers, RULES);
     }
 }

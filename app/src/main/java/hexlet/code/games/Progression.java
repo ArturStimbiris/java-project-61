@@ -8,9 +8,7 @@ public class Progression {
     public static final int MAX_VAL_FOR_START_NUMBER = 25;
     public static final int MIN_VAL_PROGR_LENGTH = 7;
     public static final int MAX_VAL_PROGR_LENGTH = 11;
-    public static String answerBranch() {
-        return "What number is missing in the progression?";
-    }
+    public static final String RULES = "What number is missing in the progression?";
     public static int[] makeProgression(int progressionStartNumber, int progressionDependency, int progressionLength) {
         int[] numbers = new int[progressionLength];
         for (int i = 0; i < progressionLength; i++) {
@@ -60,11 +58,10 @@ public class Progression {
     public static String makeGameQuestion(String progressionInText) {
         return "Question: " + progressionInText;
     }
-    public static void game(int countOfAttempts) {
-        String[] questions = new String[countOfAttempts];
-        int[] correctAnswers = new int[countOfAttempts];
-        var firstQuestion = answerBranch();
-        for (var i = 0; i < countOfAttempts; i++) {
+    public static void game() {
+        String[] questions = new String[Engine.COUNT_OF_ATTEMPTS];
+        int[] correctAnswers = new int[Engine.COUNT_OF_ATTEMPTS];
+        for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var progressionLength = makeProgressionLenght();
             var progressionDependency = makeProgressionDependency();
             var progressionStartNumber = makeProgressionStartNumber();
@@ -74,7 +71,7 @@ public class Progression {
             questions[i] = makeGameQuestion(progressionInText);
             correctAnswers[i] = progression[progressionHiddenElementPosition];
         }
-        Engine.playGame(countOfAttempts, questions, correctAnswers, firstQuestion);
+        Engine.playGame(questions, correctAnswers, RULES);
     }
 }
 

@@ -2,6 +2,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int COUNT_OF_ATTEMPTS = 3;
     public static String greeting() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -64,11 +65,11 @@ public class Engine {
             return false;
         }
     }
-    public static void playGame(int countOfAttempts, String[] gameQuestions, String[] gameAnswers, String firstText) {
+    public static void playGame(String[] gameQuestions, String[] gameAnswers, String firstText) {
         var userName = greeting();
         System.out.println(firstText);
         var win = false;
-        for (int i = 0; i < countOfAttempts; i++) {
+        for (int i = 0; i < COUNT_OF_ATTEMPTS; i++) {
             System.out.println(gameQuestions[i]);
             win = attemptForYesNo(gameAnswers[i]);
             if (!win) {
@@ -80,11 +81,11 @@ public class Engine {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
-    public static void playGame(int countOfAttempts, String[] gameQuestions, int[] gameAnswers, String firstText) {
+    public static void playGame(String[] gameQuestions, int[] gameAnswers, String firstText) {
         var userName = greeting();
         System.out.println(firstText);
         var win = false;
-        for (int i = 0; i < countOfAttempts; i++) {
+        for (int i = 0; i < COUNT_OF_ATTEMPTS; i++) {
             System.out.println(gameQuestions[i]);
             win = attemptForNumber(gameAnswers[i]);
             if (!win) {

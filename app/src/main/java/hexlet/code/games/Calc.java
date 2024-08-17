@@ -3,16 +3,13 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
-    //Set choice options
     public static final int CHOICE_ONE = 1;
     public static final int CHOICE_TWO = 2;
     public static final int CHOICE_THREE = 3;
     public static final int MAX_VALUE_OF_RANDOM = 100;
     public static final int MIN_VAL_OPERATOR = 1;
     public static final int MAX_VAL_OPERATOR = 4;
-    public static String answerBranch() {
-        return "What is the result of the expression?";
-    }
+    public static final String RULES = "What is the result of the expression?";
     public static int resultForOperation(int numberOne, int numberTwo, int mathVariant) {
         switch (mathVariant) {
             case CHOICE_ONE:
@@ -48,11 +45,10 @@ public class Calc {
     public static String makeGameQuestion(int firstQuestionNumber, int secondQuestionNumber, Character mathCharacter) {
         return "Question: " + firstQuestionNumber + " " + mathCharacter + " " + secondQuestionNumber;
     }
-    public static void game(int countOfAttempts) {
-        String[] questions = new String[countOfAttempts];
-        int[] correctAnswers = new int[countOfAttempts];
-        var firstQuestion = answerBranch();
-        for (var i = 0; i < countOfAttempts; i++) {
+    public static void game() {
+        String[] questions = new String[Engine.COUNT_OF_ATTEMPTS];
+        int[] correctAnswers = new int[Engine.COUNT_OF_ATTEMPTS];
+        for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var firstGameNumber = makeAnyQuestionNumber();
             var secondGameNumber = makeAnyQuestionNumber();
             var mathVariant = makeMathVariant();
@@ -60,6 +56,6 @@ public class Calc {
             questions[i] = makeGameQuestion(firstGameNumber, secondGameNumber, mathChar);
             correctAnswers[i] = resultForOperation(firstGameNumber, secondGameNumber, mathVariant);
         }
-        Engine.playGame(countOfAttempts, questions, correctAnswers, firstQuestion);
+        Engine.playGame(questions, correctAnswers, RULES);
     }
 }
