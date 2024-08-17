@@ -14,7 +14,7 @@ public class App {
     public static final int CHOICE_FIVE = 5;
     public static final int CHOICE_SIX = 6;
     public static final int CHOICE_ZERO = 0;
-    public static final int COUNT_OF_ATTEMPT = 3; //Count of attempts
+    public static final int COUNT_OF_ATTEMPT = 3;
     public static void main(String[] args) {
         var choice = mainMenu();
         switch (choice) {

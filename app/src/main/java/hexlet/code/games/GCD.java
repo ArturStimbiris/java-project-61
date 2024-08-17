@@ -3,7 +3,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class GCD {
-    public static final int MAX_VALUE_OF_RANDOM = 100; //Make max value of random number for this game
+    public static final int MAX_VALUE_OF_RANDOM = 100;
     public static String answerBranch() {
         return "Find the greatest common divisor of given numbers.";
     }
