@@ -30,15 +30,13 @@ public class GCD {
         return "Question: " + firstQuestionNumber + " " + secondQuestionNumber;
     }
     public static void game() {
-        String[] questions = new String[Engine.COUNT_OF_ATTEMPTS];
-        int[] correctAnswers = new int[Engine.COUNT_OF_ATTEMPTS];
+        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var firstGameNumber = makeAnyQuestionNumber();
             var secondGameNumber = makeAnyQuestionNumber();
-            questions[i] = makeGameQuestion(firstGameNumber, secondGameNumber);
-            correctAnswers[i] = gcdForTwoNumbers(firstGameNumber, secondGameNumber);
+            questionsAndAnswers[i] = makeGameQuestion(firstGameNumber, secondGameNumber) + ", " + gcdForTwoNumbers(firstGameNumber, secondGameNumber);
         }
-        Engine.playGame(questions, correctAnswers, RULES);
+        Engine.playGame(questionsAndAnswers, RULES);
     }
 }
 

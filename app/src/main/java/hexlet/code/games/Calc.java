@@ -46,16 +46,14 @@ public class Calc {
         return "Question: " + firstQuestionNumber + " " + mathCharacter + " " + secondQuestionNumber;
     }
     public static void game() {
-        String[] questions = new String[Engine.COUNT_OF_ATTEMPTS];
-        int[] correctAnswers = new int[Engine.COUNT_OF_ATTEMPTS];
+        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var firstGameNumber = makeAnyQuestionNumber();
             var secondGameNumber = makeAnyQuestionNumber();
             var mathVariant = makeMathVariant();
             var mathChar = makeCharacterForThisMathOperation(mathVariant);
-            questions[i] = makeGameQuestion(firstGameNumber, secondGameNumber, mathChar);
-            correctAnswers[i] = resultForOperation(firstGameNumber, secondGameNumber, mathVariant);
+            questionsAndAnswers[i] = makeGameQuestion(firstGameNumber, secondGameNumber, mathChar) + ", " + resultForOperation(firstGameNumber, secondGameNumber, mathVariant);
         }
-        Engine.playGame(questions, correctAnswers, RULES);
+        Engine.playGame(questionsAndAnswers, RULES);
     }
 }

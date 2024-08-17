@@ -59,8 +59,7 @@ public class Progression {
         return "Question: " + progressionInText;
     }
     public static void game() {
-        String[] questions = new String[Engine.COUNT_OF_ATTEMPTS];
-        int[] correctAnswers = new int[Engine.COUNT_OF_ATTEMPTS];
+        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var progressionLength = makeProgressionLenght();
             var progressionDependency = makeProgressionDependency();
@@ -68,10 +67,9 @@ public class Progression {
             var progressionHiddenElementPosition = makeProgressionHiddenElementPosition(progressionLength);
             int[] progression = makeProgression(progressionStartNumber, progressionDependency, progressionLength);
             var progressionInText = makeProgressionInText(progression, progressionHiddenElementPosition);
-            questions[i] = makeGameQuestion(progressionInText);
-            correctAnswers[i] = progression[progressionHiddenElementPosition];
+            questionsAndAnswers[i] = makeGameQuestion(progressionInText) + ", " + progression[progressionHiddenElementPosition];
         }
-        Engine.playGame(questions, correctAnswers, RULES);
+        Engine.playGame(questionsAndAnswers, RULES);
     }
 }
 

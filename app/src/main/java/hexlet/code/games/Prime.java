@@ -20,22 +20,21 @@ public class Prime {
         Random random = new Random();
         return random.nextInt(MAX_VALUE_OF_RANDOM);
     }
-    public static String makeGameQuestion(int firstQuestionNumber) {
-        return "Question: " + firstQuestionNumber;
+    public static String makeGameQuestion(int questionNumber) {
+        return "Question: " + questionNumber;
     }
     public static void game() {
-        String[] questions = new String[Engine.COUNT_OF_ATTEMPTS];
-        String[] correctAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[] questionsAndAnswers = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
-            var firstGameNumber = makeAnyQuestionNumber();
-            questions[i] = makeGameQuestion(firstGameNumber);
-            var isPrimeNumber = isPrime(firstGameNumber);
+            var gameNumber = makeAnyQuestionNumber();
+            questionsAndAnswers[i] = makeGameQuestion(gameNumber);
+            var isPrimeNumber = isPrime(gameNumber);
             if (isPrimeNumber) {
-                correctAnswers[i] = "yes";
+                questionsAndAnswers[i] = questionsAndAnswers[i] + ", " + "yes";
             } else {
-                correctAnswers[i] = "no";
+                questionsAndAnswers[i] = questionsAndAnswers[i] + ", " + "no";;
             }
         }
-        Engine.playGame(questions, correctAnswers, RULES);
+        Engine.playGame(questionsAndAnswers, RULES);
     }
 }
