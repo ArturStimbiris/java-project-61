@@ -3,11 +3,11 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
-    public static final int minValueOfRandomForDependency = 1; //Make min value of random number for progression dependency
-    public static final int maxValueOfRandomForDependency = 7; //Make max value of random number for progression dependency
-    public static final int maxValueOfRandomForStartNumber = 25; //Make max value of random number for progression start number
-    public static final int minValueOfRandomForProgressionLength = 7; //Make min value of random number for progression length
-    public static final int maxValueOfRandomForProgressionLength = 11; //Make max value of random number for progression length
+    public static final int MIN_VALUE_OF_RANDOM_FOR_DEPENDENCY = 1; //Make min value of random number for progression dependency
+    public static final int MAX_VALUE_OF_RANDOM_FOR_DEPENDENCY = 7; //Make max value of random number for progression dependency
+    public static final int MAX_VALUE_OF_RANDOM_FOR_START_NUMBER = 25; //Make max value of random number for progression start number
+    public static final int MIN_VALUE_OF_RANDOM_FOR_PROGRESSION_LENGTH = 7; //Make min value of random number for progression length
+    public static final int MAX_VALUE_OF_RANDOM_FOR_PROGRESSION_LENGTH = 11; //Make max value of random number for progression length
     public static String answerBranch() {
         return "What number is missing in the progression?";
     }
@@ -41,15 +41,15 @@ public class Progression {
     }
     public static int makeProgressionDependency() {
         Random random = new Random();
-        return random.nextInt(minValueOfRandomForDependency, maxValueOfRandomForDependency);
+        return random.nextInt(MIN_VALUE_OF_RANDOM_FOR_DEPENDENCY, MAX_VALUE_OF_RANDOM_FOR_DEPENDENCY);
     }
     public static int makeProgressionStartNumber() {
         Random random = new Random();
-        return random.nextInt(maxValueOfRandomForStartNumber);
+        return random.nextInt(MAX_VALUE_OF_RANDOM_FOR_START_NUMBER);
     }
     public static int makeProgressionLenght() {
         Random random = new Random();
-        return random.nextInt(minValueOfRandomForProgressionLength, maxValueOfRandomForProgressionLength);
+        return random.nextInt(MIN_VALUE_OF_RANDOM_FOR_PROGRESSION_LENGTH, MAX_VALUE_OF_RANDOM_FOR_PROGRESSION_LENGTH);
     }
     public static int makeProgressionHiddenElementPosition(int progressionLength) {
         var minValueOfRandom = 0;

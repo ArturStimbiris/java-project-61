@@ -4,22 +4,22 @@ import java.util.Random;
 
 public class Calc {
     //Set choice options
-    public static final int choiceOne = 1;
-    public static final int choiceTwo = 2;
-    public static final int choiceThree = 3;
-    public static final int maxValueOfRandom = 100; //Make max value of random number for this game
-    public static final int minValueOfRandomForOperator = 1; //Make min value of random number for generate math operator
-    public static final int maxValueOfRandomForOperator = 4; //Make max value of random number for generate math operator
+    public static final int CHOICE_ONE = 1;
+    public static final int CHOICE_TWO = 2;
+    public static final int CHOICE_THREE = 3;
+    public static final int MAX_VALUE_OF_RANDOM = 100; //Make max value of random number for this game
+    public static final int MIN_VALUE_OF_RANDOM_FOR_OPERATOR = 1; //Make min value of random number for generate math operator
+    public static final int MAX_VALUE_OF_RANDOM_FOR_OPERATOR = 4; //Make max value of random number for generate math operator
     public static String answerBranch() {
         return "What is the result of the expression?";
     }
     public static int resultForOperation(int numberOne, int numberTwo, int mathVariant) {
         switch (mathVariant) {
-            case choiceOne:
+            case CHOICE_ONE:
                 return numberOne + numberTwo;
-            case choiceTwo:
+            case CHOICE_TWO:
                 return numberOne - numberTwo;
-            case choiceThree:
+            case CHOICE_THREE:
                 return numberOne * numberTwo;
             default:
                 return 0;
@@ -27,11 +27,11 @@ public class Calc {
     }
     public static Character makeCharacterForThisMathOperation(int mathVariant) {
         switch (mathVariant) {
-            case choiceOne:
+            case CHOICE_ONE:
                 return '+';
-            case choiceTwo:
+            case CHOICE_TWO:
                 return '-';
-            case choiceThree:
+            case CHOICE_THREE:
                 return '*';
             default:
                 return null;
@@ -39,11 +39,11 @@ public class Calc {
     }
     public static int makeMathVariant() {
         Random random = new Random();
-        return random.nextInt(minValueOfRandomForOperator, maxValueOfRandomForOperator);
+        return random.nextInt(MIN_VALUE_OF_RANDOM_FOR_OPERATOR, MAX_VALUE_OF_RANDOM_FOR_OPERATOR);
     }
     public static int makeAnyQuestionNumber() {
         Random random = new Random();
-        return random.nextInt(maxValueOfRandom);
+        return random.nextInt(MAX_VALUE_OF_RANDOM);
     }
     public static String makeGameQuestion(int firstQuestionNumber, int secondQuestionNumber, Character mathCharacter) {
         return "Question: " + firstQuestionNumber + " " + mathCharacter + " " + secondQuestionNumber;

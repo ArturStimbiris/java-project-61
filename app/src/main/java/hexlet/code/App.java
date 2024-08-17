@@ -7,42 +7,42 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class App {
-    public static final int choiceOne = 1;
-    public static final int choiceTwo = 2;
-    public static final int choiceThree = 3;
-    public static final int choiceFour = 4;
-    public static final int choiceFive = 5;
-    public static final int choiceSix = 6;
-    public static final int choiceZero = 0;
+    public static final int CHOICE_ONE = 1;
+    public static final int CHOICE_TWO = 2;
+    public static final int CHOICE_THREE = 3;
+    public static final int CHOICE_FOUR = 4;
+    public static final int CHOICE_FIVE = 5;
+    public static final int CHOICE_SIX = 6;
+    public static final int CHOICE_ZERO = 0;
+    public static final int COUNT_OF_ATTEMPT = 3; //Count of attempts
     public static void main(String[] args) {
         var choice = mainMenu();
-        var countOfAttempts = 3; //Count for all attempts in any game
         switch (choice) {
-            case choiceOne: //Select menu number "1"
+            case CHOICE_ONE: //Select menu number "1"
                 System.out.println("Your choice - " + choice);
                 Engine.greeting();
                 break;
-            case choiceTwo: //Select menu number "2"
+            case CHOICE_TWO: //Select menu number "2"
                 System.out.println("Your choice - " + choice);
-                Even.game(countOfAttempts);
+                Even.game(COUNT_OF_ATTEMPT);
                 break;
-            case choiceThree: //Select menu number "3"
+            case CHOICE_THREE: //Select menu number "3"
                 System.out.println("Your choice - " + choice);
-                Calc.game(countOfAttempts);
+                Calc.game(COUNT_OF_ATTEMPT);
                 break;
-            case choiceFour: //Select menu number "4"
+            case CHOICE_FOUR: //Select menu number "4"
                 System.out.println("Your choice - " + choice);
-                GCD.game(countOfAttempts);
+                GCD.game(COUNT_OF_ATTEMPT);
                 break;
-            case choiceFive: //Select menu number "5"
+            case CHOICE_FIVE: //Select menu number "5"
                 System.out.println("Your choice - " + choice);
-                Progression.game(countOfAttempts);
+                Progression.game(COUNT_OF_ATTEMPT);
                 break;
-            case choiceSix: //Select menu number "6"
+            case CHOICE_SIX: //Select menu number "6"
                 System.out.println("Your choice - " + choice);
-                Prime.game(countOfAttempts);
+                Prime.game(COUNT_OF_ATTEMPT);
                 break;
-            case choiceZero: //Select menu number "0"
+            case CHOICE_ZERO: //Select menu number "0"
                 System.out.println("Your choice - " + choice);
                 break;
             default:
