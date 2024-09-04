@@ -33,13 +33,14 @@ public class Calc {
     }
 
     public static void game() {
-        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[][] qa = new String[Engine.COUNT_OF_ATTEMPTS][2];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var numOne = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
             var numTwo = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
             var mathVar = Utils.getRandomNum(MIN_VAL_OPERATOR, MAX_VAL_OPERATOR);
             var mathResult = result(numOne, numTwo, mathVar);
-            qa[i] = makeQuestion(numOne, numTwo, mathChar) + ", " + mathResult;
+            qa[i][0] = makeQuestion(numOne, numTwo, mathChar);
+            qa[i][1] = String.valueOf(mathResult);
         }
         Engine.playGame(qa, RULES);
     }

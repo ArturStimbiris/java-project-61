@@ -49,7 +49,7 @@ public class App {
                 System.out.println("Not allowed choice - " + choice + ". Bue!");
         }
     }
-    
+
     public static int mainMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");

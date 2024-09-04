@@ -18,15 +18,15 @@ public class Even {
     }
 
     public static void game() {
-        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[][] qa = new String[Engine.COUNT_OF_ATTEMPTS][2];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var questionNumber = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
-            qa[i] = makeQuestion(questionNumber);
+            qa[i][0] = makeQuestion(questionNumber);
             var isEvenNumber = isEven(questionNumber);
             if (isEvenNumber) {
-                qa[i] = qa[i] + ", " + "yes";
+                qa[i][1] = "yes";
             } else {
-                qa[i] = qa[i] + ", " + "no";
+                qa[i][1] = "no";
             }
         }
         Engine.playGame(qa, RULES);

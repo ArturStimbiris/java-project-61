@@ -45,7 +45,7 @@ public class Progression {
     }
 
     public static void game() {
-        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[][] qa = new String[Engine.COUNT_OF_ATTEMPTS][2];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var length = Utils.getRandomNum(MIN_VAL_PROGR_LENGTH, MAX_VAL_PROGR_LENGTH);
             var dependency = Utils.getRandomNum(MIN_VAL_FOR_DEPENDENCY, MAX_VAL_FOR_DEPENDENCY);
@@ -53,7 +53,8 @@ public class Progression {
             var hiddenElemint = Utils.getRandomNum(0, length - 1);
             int[] progression = makeProgression(startNumber, dependency, length);
             var progressionInText = makeProgressionInText(progression, hiddenElemint);
-            qa[i] = makeQuestion(progressionInText) + ", " + progression[hiddenElemint];
+            qa[i][0] = makeQuestion(progressionInText);
+            qa[i][1] = String.valueOf(progression[hiddenElemint]);
         }
         Engine.playGame(qa, RULES);
     }

@@ -29,11 +29,12 @@ public class GCD {
     }
 
     public static void game() {
-        String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
+        String[][] qa = new String[Engine.COUNT_OF_ATTEMPTS][2];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var firstNumber = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
             var secondNumber = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
-            qa[i] = makeQuestion(firstNumber, secondNumber) + ", " + gcd(firstNumber, secondNumber);
+            qa[i][0] = makeQuestion(firstNumber, secondNumber);
+            qa[i][1] = String.valueOf(gcd(firstNumber, secondNumber));
         }
         Engine.playGame(qa, RULES);
     }
