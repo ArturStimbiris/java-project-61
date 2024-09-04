@@ -10,30 +10,21 @@ public class Calc {
     private static final int MIN_VAL_OPERATOR = 1;
     private static final int MAX_VAL_OPERATOR = 4;
     private static final String RULES = "What is the result of the expression?";
+    private static Character mathChar = null;
 
     public static int result(int numberOne, int numberTwo, int mathVariant) {
         switch (mathVariant) {
             case CHOICE_ONE:
+                mathChar = '+';
                 return numberOne + numberTwo;
             case CHOICE_TWO:
+                mathChar = '-';
                 return numberOne - numberTwo;
             case CHOICE_THREE:
+                mathChar = '*';
                 return numberOne * numberTwo;
             default:
                 throw new Error("Unknown number");
-        }
-    }
-
-    public static Character makeChar(int mathVariant) {
-        switch (mathVariant) {
-            case CHOICE_ONE:
-                return '+';
-            case CHOICE_TWO:
-                return '-';
-            case CHOICE_THREE:
-                return '*';
-            default:
-                return null;
         }
     }
 
@@ -46,9 +37,9 @@ public class Calc {
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
             var numOne = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
             var numTwo = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
-            var mathVariant = Utils.getRandomNum(MIN_VAL_OPERATOR, MAX_VAL_OPERATOR);
-            var mathChar = makeChar(mathVariant);
-            qa[i] = makeQuestion(numOne, numTwo, mathChar) + ", " + result(numOne, numTwo, mathVariant);
+            var mathVar = Utils.getRandomNum(MIN_VAL_OPERATOR, MAX_VAL_OPERATOR);
+            var mathResult = result(numOne, numTwo, mathVar);
+            qa[i] = makeQuestion(numOne, numTwo, mathChar) + ", " + mathResult;
         }
         Engine.playGame(qa, RULES);
     }
