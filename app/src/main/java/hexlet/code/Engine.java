@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int COUNT_OF_ATTEMPTS = 3;
-    public static final String DELEMITER = ", ";
+    private static final String DELEMITER = ", ";
+
     public static String greeting() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -17,6 +18,7 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
         return userName;
     }
+
     public static void playGame(String[] questionsAndAnswers, String rules) {
         var userName = greeting();
         System.out.println(rules);
@@ -33,14 +35,17 @@ public class Engine {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
+
     public static String extractQuestion(String questionAndAnswer) {
         int delimiterIndex = questionAndAnswer.indexOf(DELEMITER);
         return questionAndAnswer.substring(0, delimiterIndex);
     }
+
     public static String extractAnswer(String questionAndAnswer) {
         int delimiterIndex = questionAndAnswer.indexOf(DELEMITER);
         return questionAndAnswer.substring(delimiterIndex + DELEMITER.length());
     }
+    
     public static boolean attempt(String answer) {
         String choice = "";
         var scannerAttempChoice = new Scanner(System.in);

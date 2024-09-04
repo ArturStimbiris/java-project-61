@@ -7,13 +7,14 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class App {
-    public static final int CHOICE_ONE = 1;
-    public static final int CHOICE_TWO = 2;
-    public static final int CHOICE_THREE = 3;
-    public static final int CHOICE_FOUR = 4;
-    public static final int CHOICE_FIVE = 5;
-    public static final int CHOICE_SIX = 6;
-    public static final int CHOICE_ZERO = 0;
+    private static final int CHOICE_ONE = 1;
+    private static final int CHOICE_TWO = 2;
+    private static final int CHOICE_THREE = 3;
+    private static final int CHOICE_FOUR = 4;
+    private static final int CHOICE_FIVE = 5;
+    private static final int CHOICE_SIX = 6;
+    private static final int CHOICE_ZERO = 0;
+
     public static void main(String[] args) {
         var choice = mainMenu();
         switch (choice) {
@@ -48,6 +49,7 @@ public class App {
                 System.out.println("Not allowed choice - " + choice + ". Bue!");
         }
     }
+    
     public static int mainMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");

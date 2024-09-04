@@ -1,10 +1,11 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Prime {
-    public static final int MAX_VALUE_OF_RANDOM = 100;
-    public static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MAX_VALUE_OF_RANDOM = 100;
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     public static boolean isPrime(int n) {
         if (n < 2) {
             return false;
@@ -16,17 +17,15 @@ public class Prime {
         }
         return true;
     }
-    public static int makeAnyQuestionNumber() {
-        Random random = new Random();
-        return random.nextInt(MAX_VALUE_OF_RANDOM);
-    }
+
     public static String makeQuestion(int questionNumber) {
         return "Question: " + questionNumber;
     }
+
     public static void game() {
         String[] qa = new String[Engine.COUNT_OF_ATTEMPTS];
         for (var i = 0; i < Engine.COUNT_OF_ATTEMPTS; i++) {
-            var gameNumber = makeAnyQuestionNumber();
+            var gameNumber = Utils.getRandomNum(MAX_VALUE_OF_RANDOM);
             qa[i] = makeQuestion(gameNumber);
             var isPrimeNumber = isPrime(gameNumber);
             if (isPrimeNumber) {
